@@ -3,5 +3,19 @@ kind: ReleaseNote
 metadata:
   name: example-releasenote
 spec:
-  # Add fields here
-  size: 3
+  contents:
+    build:
+      operator: Takeshi Takizawa
+      url: http://jenkins.service.consul:8080/job/Tenant/job/default/job/hello-world/15/
+    resources:
+    - name: Application
+      type: git
+      url: git@github.com:takitake/hello-world-go.git
+      revision: feature/abc
+    - name: Manifest
+      type: git
+      url: git@github.com:takitake/manifests.git
+      revision: master
+  publisher:
+    type: git
+    url: git@github.com:takitake/release-note.git
