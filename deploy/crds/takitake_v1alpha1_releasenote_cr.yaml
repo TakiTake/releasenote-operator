@@ -1,0 +1,7 @@
+apiVersion: takitake.dev/v1alpha1
+kind: ReleaseNote
+metadata:
+  name: example-releasenote
+spec:
+  # Add fields here
+  size: 3

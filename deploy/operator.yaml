@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: releasenote-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: releasenote-operator
+  template:
+    metadata:
+      labels:
+        name: releasenote-operator
+    spec:
+      serviceAccountName: releasenote-operator
+      containers:
+        - name: releasenote-operator
+          # Replace this with the built image name
+          image: takitake/releasenote-operator
+          command:
+          - releasenote-operator
+          imagePullPolicy: Always
+          env:
+            - name: WATCH_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: OPERATOR_NAME
+              value: "releasenote-operator"
