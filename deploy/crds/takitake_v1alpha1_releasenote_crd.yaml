@@ -9,6 +9,8 @@ spec:
     listKind: ReleaseNoteList
     plural: releasenotes
     singular: releasenote
+    shortNames:
+    - rn
   scope: Namespaced
   subresources:
     status: {}
