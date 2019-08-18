@@ -8,8 +8,6 @@ resources:
 - operator.yaml
 - crds/takitake_v1alpha1_releasenote_cr.yaml
 configMapGenerator:
-- KVSources:
-  - args:
-    - cm/template.md
-    name: files
+- files:
+  - cm/template.md
   name: default-template
